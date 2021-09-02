@@ -7,6 +7,47 @@
 <body>
 <h1>Новая страница</h1>
 {{a}}
-<h1>{{text}}</h1>
+<h1>{{object_list}}</h1>
+
+<!--{% for obj in object_list %}-->
+<!--<br>-->
+<!--<h2>{{ obj.id }}</h2>-->
+<!--<h2>{{ obj.order_dt }}</h2>-->
+<!--<h2>{{ obj.order_name }}</h2>-->
+<!--<h2>{{ obj.order_phone }}</h2>-->
+
+<!--{% endfor %}-->
+
+{% if object_list %}
+<table border="10">
+    <tr>
+        <th>ID</th>
+        <th>Дата</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+    </tr>
+    {% for obj in object_list %}
+    <tr>
+        <th>{{ obj.id }}</th>
+        <th>{{ obj.order_dt }}</th>
+        <th>{{ obj.order_name }}</th>
+        <th>{{ obj.order_phone }}</th>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+НЕТ ДАННЫХ
+{% endif %}
+
+<br>
+<br>
+<form action="{% url 'thanks_page' %}" method="">
+    <label for="">Имя</label>
+    <input name="name">
+    <label for="">Телефон</label>
+    <input name="phone">
+    <button type="submit">ОТПРАВИТЬ</button>
+</form>
+
 </body>
 </html>
