@@ -41,10 +41,11 @@
 
 <br>
 <br>
-<form action="{% url 'thanks_page' %}" method="">
-    <label for="">Имя</label>
+<form action="{% url 'thanks_page' %}" method="POST">
+    {% csrf_token %}
+    <label>Имя</label>
     <input name="name">
-    <label for="">Телефон</label>
+    <label>Телефон</label>
     <input name="phone">
     <button type="submit">ОТПРАВИТЬ</button>
 </form>
