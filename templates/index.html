@@ -1,63 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %} Тайтл из индекса {% endblock %}
+{% block content %}
+<h2>Данные из index.html</h2>
 
-<style>
-.css_input {
-color: yellow;
-background-color: red;
-}
-</style>
+{% include 'index_old.html' %}
 
-<h1>Новая страница</h1>
-{{a}}
-<h1>{{object_list}}</h1>
-
-<!--{% for obj in object_list %}-->
-<!--<br>-->
-<!--<h2>{{ obj.id }}</h2>-->
-<!--<h2>{{ obj.order_dt }}</h2>-->
-<!--<h2>{{ obj.order_name }}</h2>-->
-<!--<h2>{{ obj.order_phone }}</h2>-->
-
-<!--{% endfor %}-->
-
-{% if object_list %}
-<table border="10">
-    <tr>
-        <th>ID</th>
-        <th>Дата</th>
-        <th>Имя</th>
-        <th>Телефон</th>
-    </tr>
-    {% for obj in object_list %}
-    <tr>
-        <th>{{ obj.id }}</th>
-        <th>{{ obj.order_dt }}</th>
-        <th>{{ obj.order_name }}</th>
-        <th>{{ obj.order_phone }}</th>
-    </tr>
-    {% endfor %}
-</table>
-{% else %}
-НЕТ ДАННЫХ
-{% endif %}
-
-<br>
-<br>
-<form action="{% url 'thanks_page' %}" method="POST">
-    {% csrf_token %}
-<!--    <label>Имя</label>-->
-<!--    <input name="name">-->
-<!--    <label>Телефон</label>-->
-<!--    <input name="phone">-->
-    {{ form.as_p }}
-    <button type="submit">ОТПРАВИТЬ</button>
-</form>
-
-</body>
-</html>
+{% endblock %}
