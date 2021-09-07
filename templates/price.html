@@ -40,8 +40,8 @@
 			    </tr>
 			  </thead>
 			  <tbody>
+			  {% for obj in price_table %}
 			    <tr>
-			{% for obj in price_table %}
 			      <td> {{ obj.pt_title }} </td>
 			      <td><del>{{ obj.pt_old_price }}</del></td>
 			      <td>{{ obj.pt_new_price }}</td>
